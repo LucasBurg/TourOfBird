@@ -9,7 +9,24 @@ class Bird {
 
 @Component(
   selector: 'my-app',
-  template: '<h1>{{title}}</h1><h2>{{bird.name}}</h2>',
+
+  //one line
+  //template: '<h1>{{title}}</h1><h2>{{bird.name}}</h2>',
+
+  // multi line
+  template: '''
+    <h1>{{title}}</h1>
+    <h2>Detalhes de {{bird.name}}</h2>
+    <div>
+      <label>Id: </label>{{bird.id}}
+    </div>
+    <div>
+      <label>Nome: </label>{{bird.name}}
+    </div>
+  ''',
+
+
+
 )
 
 class AppComponent {
