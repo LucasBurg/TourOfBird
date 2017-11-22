@@ -1,4 +1,5 @@
 import 'package:angular/angular.dart';
+import 'package:angular_forms/angular_forms.dart';
 
 class Bird {
   final int id;
@@ -16,6 +17,10 @@ class Bird {
   // multi line
   template: '''
     <h1>{{title}}</h1>
+    <div>
+      <label>name: </label>
+      <input [(ngModel)]="bird.name" placeholder="name">
+    </div>
     <h2>Detalhes de {{bird.name}}</h2>
     <div>
       <label>Id: </label>{{bird.id}}
@@ -24,9 +29,7 @@ class Bird {
       <label>Nome: </label>{{bird.name}}
     </div>
   ''',
-
-
-
+  directives: const [formDirectives],
 )
 
 class AppComponent {
