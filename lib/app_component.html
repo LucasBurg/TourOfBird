@@ -1,9 +1,8 @@
 <h1>{{title}}</h1>
-<h2>Detalhes de {{bird.name}}</h2>
-<div>
-  <label>Id: </label>{{bird.id}}
-</div>
-<div>
-  <label>name: </label>
-  <input [(ngModel)]="bird.name" placeholder="name">
-</div>
+<h2>Meus passáros</h2>
+<ul>
+  <li *ngFor="let bird of birds">
+    <span class="badge">{{bird.id}}</span> {{bird.name}}
+  </li>
+</ul>
+

@@ -1,5 +1,14 @@
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
+import 'src/bird.dart';
+
+final mockBirds = <Bird>[
+  new Bird(1, 'Canário'),
+  new Bird(2, 'Coleiro'),
+  new Bird(3, 'Sábia'),
+];
+
+
 
 @Component(
   selector: 'my-app',
@@ -23,18 +32,11 @@ import 'package:angular_forms/angular_forms.dart';
   //url ref
   templateUrl: 'app_component.html',
 
-  directives: const [formDirectives],
+  directives: const [CORE_DIRECTIVES, formDirectives],
 )
 
 class AppComponent {
   final title = 'Tour Of Bird';
   
-  Bird bird = new Bird(1, 'Canário');
-}
-
-class Bird {
-  final int id;
-  String name;
-
-  Bird(this.id, this.name);
+  List<Bird> birds = mockBirds;
 }
