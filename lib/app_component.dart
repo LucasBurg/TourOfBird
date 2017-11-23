@@ -32,7 +32,7 @@ final mockBirds = <Bird>[
 
   //url ref
   templateUrl: 'app_component.html',
-
+  styleUrls: const ['app_component.css'],
   directives: const [CORE_DIRECTIVES, formDirectives],
 )
 

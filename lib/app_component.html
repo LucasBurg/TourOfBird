@@ -10,8 +10,8 @@
   </div>
 </div>
 
-<ul>
-  <li *ngFor="let bird of birds" (click)="onSelect(bird)">
+<ul class="birds">
+  <li *ngFor="let bird of birds" [class.selected]="bird === selectedBird" (click)="onSelect(bird)">
     <span class="badge">{{bird.id}}</span> {{bird.name}}
   </li>
 </ul>
