@@ -1,18 +1,8 @@
 <h1>{{title}}</h1>
 <h2>Meus passáros</h2>
-
-<div *ngIf="selectedBird != null">
-  <h2>{{selectedBird.name}} detalhes</h2>
-  <div><label>id: </label>{{selectedBird.id}}</div>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="selectedBird.name" placeholder="name"/>
-  </div>
-</div>
-
+<bird-detail [bird]="birdSelected"></bird-detail>
 <ul class="birds">
-  <li *ngFor="let bird of birds" [class.selected]="bird === selectedBird" (click)="onSelect(bird)">
-    <span class="badge">{{bird.id}}</span> {{bird.name}}
-  </li>
+    <li *ngFor="let bird of birds" [class.selected]="bird === birdSelected" (click)="onSelect(bird)">
+        <span class="badge">{{bird.id}}</span> {{bird.name}}
+    </li>
 </ul>
-
