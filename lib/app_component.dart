@@ -10,6 +10,7 @@ final mockBirds = <Bird>[
 
 
 
+
 @Component(
   selector: 'my-app',
 
@@ -39,4 +40,9 @@ class AppComponent {
   final title = 'Tour Of Bird';
   
   List<Bird> birds = mockBirds;
+
+
+  Bird selectedBird;
+  
+  void onSelect(Bird bird) => selectedBird = bird;
 }
