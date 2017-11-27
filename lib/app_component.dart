@@ -1,4 +1,6 @@
 import 'package:angular/angular.dart';
+import 'package:angular_router/angular_router.dart';
+
 //import 'src/bird_service.dart';
 import 'src/birds_component.dart';
 
@@ -6,14 +8,17 @@ import 'src/birds_component.dart';
   selector: 'my-app',
   template: '''
     <h1>{{title}}</h1>
-    <my-birds></my-birds>
+    <a [routerLink]="['Birds']">Birds</a>
+    <router-outlet></router-outlet>
   ''',
-  directives: const [BirdsComponent],
+  directives: const [ROUTER_DIRECTIVES, BirdsComponent],
   //providers: const [BirdService]
 )
 
+@RouteConfig(const [
+  const Route(path: '/birds', name: 'Birds', component: BirdsComponent),
+])
+
 class AppComponent {
-  
   final title = 'Tour Of Bird';
-  
 }
