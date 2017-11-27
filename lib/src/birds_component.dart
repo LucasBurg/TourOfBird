@@ -7,7 +7,7 @@ import 'bird_service.dart';
   selector: 'my-birds',
   templateUrl: 'birds_component.html',
   styleUrls: const ['birds_component.css'],
-  directives: const [CORE_DIRECTIVES, HeroDetailComponent],
+  directives: const [CORE_DIRECTIVES, BirdDetailComponent],
   providers: const [BirdService]
 )
 

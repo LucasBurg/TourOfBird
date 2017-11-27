@@ -18,7 +18,7 @@ import 'bird.dart';
   ''',
 )
 
-class HeroDetailComponent {
+class BirdDetailComponent {
   @Input()
   Bird bird;
 }
