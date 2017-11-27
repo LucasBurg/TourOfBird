@@ -1,5 +1,4 @@
 import 'package:angular/angular.dart';
-
 import 'bird.dart';
 import 'bird_detail_component.dart';
 import 'bird_service.dart';
@@ -13,8 +12,6 @@ import 'bird_service.dart';
 )
 
 class BirdsComponent implements OnInit {
-  
-  final title = 'Tour Of Bird';
   
   final BirdService _birdService;
   
