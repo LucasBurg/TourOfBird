@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:angular/angular.dart';
 
 import 'src/bird.dart';
@@ -14,18 +12,22 @@ import 'src/bird_service.dart';
   providers: const [BirdService]
 )
 
-class AppComponent {
+class AppComponent implements OnInit {
+  
   final title = 'Tour Of Bird';
+  
   final BirdService _birdService;
+  
   List<Bird> birds;
+  
   Bird birdSelected;
 
   AppComponent(this._birdService);
 
-  Future<Null> getBirds() async {
-    birds = await _birdService.getBirds();
+  void getBirds() {
+    birds = _birdService.getBirds();
   }
-
+  
   void ngOnInit() => getBirds();
 
   void onSelect(Bird bird) => birdSelected = bird;
