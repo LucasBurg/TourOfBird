@@ -1,18 +1,18 @@
 import 'package:angular/angular.dart';
 
-import 'src/bird.dart';
-import 'src/bird_detail_component.dart';
-import 'src/bird_service.dart';
+import 'bird.dart';
+import 'bird_detail_component.dart';
+import 'bird_service.dart';
 
 @Component(
-  selector: 'my-app',
-  templateUrl: 'app_component.html',
-  styleUrls: const ['app_component.css'],
+  selector: 'my-birds',
+  templateUrl: 'birds_component.html',
+  styleUrls: const ['birds_component.css'],
   directives: const [CORE_DIRECTIVES, HeroDetailComponent],
   providers: const [BirdService]
 )
 
-class AppComponent implements OnInit {
+class BirdsComponent implements OnInit {
   
   final title = 'Tour Of Bird';
   
@@ -22,7 +22,7 @@ class AppComponent implements OnInit {
   
   Bird birdSelected;
 
-  AppComponent(this._birdService);
+  BirdsComponent(this._birdService);
 
   void getBirds() {
     birds = _birdService.getBirds();
