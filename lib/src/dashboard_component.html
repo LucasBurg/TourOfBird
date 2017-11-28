@@ -1,11 +1,9 @@
 <h3>Top Birds</h3>
 <div class="grid grid-pad">
-  
-  
-  <div *ngFor="let bird of birds">
+  <div *ngFor="let bird of birds" [routerLink]="['BirdDetail', {id: bird.id.toString()}]" class="col-1-4">
     <div class="module bird">
       <h4>{{bird.name}}</h4>
     </div>
   </div>
-
 </div>
+

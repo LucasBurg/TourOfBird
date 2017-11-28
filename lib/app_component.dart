@@ -15,7 +15,7 @@ import 'src/bird_detail_component.dart';
     </nav>
     <router-outlet></router-outlet>
   ''',
-  directives: const [ROUTER_DIRECTIVES, BirdsComponent, DashboardComponent],
+  directives: const [ROUTER_DIRECTIVES, BirdsComponent, DashboardComponent, BirdDetailComponent],
 )
 
 @RouteConfig(const [

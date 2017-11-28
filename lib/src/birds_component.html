@@ -1,7 +1,13 @@
 <h2>Meus passáros</h2>
-<bird-detail [bird]="birdSelected"></bird-detail>
 <ul class="birds">
     <li *ngFor="let bird of birds" [class.selected]="bird === birdSelected" (click)="onSelect(bird)">
         <span class="badge">{{bird.id}}</span> {{bird.name}}
     </li>
 </ul>
+<bird-detail [bird]="birdSelected"></bird-detail>
+<div *ngIf="birdSelected != null">
+    <h2>
+        {{birdSelected.name | uppercase}} is my bird
+    </h2>
+    <button (click)="gotoDetail()">View Details</button>
+</div>
