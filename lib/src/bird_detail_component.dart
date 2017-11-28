@@ -11,6 +11,7 @@ import 'bird_service.dart';
   selector: 'bird-detail',
   directives: const [CORE_DIRECTIVES, formDirectives],
   templateUrl: 'bird_detail_component.html',
+  providers: const [BirdService],
 )
 
 class BirdDetailComponent implements OnInit {
