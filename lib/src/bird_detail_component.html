@@ -1,0 +1,9 @@
+<div *ngIf="bird != null">
+    <h2>{{bird.name}} detalhes</h2>
+    <div><label>Id: </label>{{bird.id}}</div>
+    <div>
+        <label>Nome: </label>
+        <input [(ngModel)]="bird.name" placeholder="name"/>
+    </div>
+    <button (click)="goBack()">Back</button>
+</div>
