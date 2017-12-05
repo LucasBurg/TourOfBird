@@ -10,6 +10,7 @@ import 'src/bird.dart';
 
 @Injectable()
 class InMemoryDataService extends MockClient {
+
   static final _initialBirds = [
     {'id': 1, 'name': 'Coleiro'},
     {'id': 2, 'name': 'Sabia'},
@@ -28,7 +29,7 @@ class InMemoryDataService extends MockClient {
     if (req.method == 'GET') {
       final id = int.parse(req.url.pathSegments.last, onError: (_) => null);
       if (id != null) {
-        data = _birdsDb.firstWhere((bird) => bird.id);
+        data = _birdsDb.firstWhere((bird) => bird.id == id);
       } else {
         String prefix = req.url.queryParameters['name'] ?? '';
         final reqExp = new RegExp(prefix, caseSensitive: false);
@@ -57,7 +58,7 @@ class InMemoryDataService extends MockClient {
   }
 
   static String lookUpName(int id) =>
-    _birdsDb.firstWhere((hero) => hero.id == id, orElse: null)?.name;
+    _birdsDb.firstWhere((bird) => bird.id == id, orElse: null)?.name;
 
   InMemoryDataService() : super(_handler);
 

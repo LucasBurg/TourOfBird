@@ -1,9 +1,8 @@
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
-import 'package:angular_app/app_component.dart';
 
-import 'package:angular_tour_of_bird/app_component.dart';
-import 'package:angular_tour_of_bird/in_memory_data_service.dart';
+import 'package:angular_app/app_component.dart';
+import 'package:angular_app/in_memory_data_service.dart';
 
 import 'package:http/http.dart';
 
