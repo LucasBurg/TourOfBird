@@ -1,7 +1,7 @@
 <h2>Meus passáros</h2>
 <div>
     <label>Bird name:</label> <input #birdName />
-    <button (click)="add(birdName.value); birdName.value = ''">Add</button>
+    <button (click)="add(birdName.value); birdName.value=''">Add</button>
 </div>
 <ul class="birds">
     <li *ngFor="let bird of birds" [class.selected]="bird === birdSelected" (click)="onSelect(bird)">

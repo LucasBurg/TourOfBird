@@ -32,8 +32,6 @@ class BirdsComponent implements OnInit {
     birds = await _birdService.getBirds();
   }
   
-
-
   Future<Null> gotoDetail() => _router.navigate(['BirdDetail', {'id': birdSelected.id.toString()}]);
 
   Future<Null> add(String name) async {

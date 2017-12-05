@@ -56,6 +56,7 @@ class InMemoryDataService extends MockClient {
 
   static resetDb() {
     _birdsDb = _initialBirds.map((json) => new Bird.fromJson(json)).toList();
+    _nextId = _birdsDb.map((bird) => bird.id).fold(0, max) + 1;
   }
 
   static String lookUpName(int id) =>

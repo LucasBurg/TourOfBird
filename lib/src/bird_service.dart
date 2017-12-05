@@ -37,7 +37,7 @@ class BirdService {
     Future<List<Bird>> getBirds() async {
         try {
             final res = await _http.get(_birdUrl);
-            final birds = _extractData(res).map((val) => new Bird.fromJson(val)).toList();
+            final birds = _extractData(res).map((value) => new Bird.fromJson(value)).toList();
             return birds;
         } catch (e) {
             throw _handleError(e);
