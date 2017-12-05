@@ -14,7 +14,9 @@ import '../bird.dart';
     styleUrls: const ['bird_search_component.css'],
     directives: const [CORE_DIRECTIVES],
     providers: const [BirdSearchService],
-    pipes: const [COMMON_PIPES])
+    pipes: const [COMMON_PIPES]
+)
+
 class BirdSearchComponent implements OnInit {
 
   BirdSearchService _birdSearchService;
