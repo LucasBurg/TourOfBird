@@ -3,13 +3,15 @@ import 'dart:async';
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 
+import 'bird_search/bird_search_component.dart';
+
 import 'bird.dart';
 import 'bird_service.dart';
 
 @Component(
   selector: 'my-dashboard',
   templateUrl: 'dashboard_component.html',
-  directives: const [CORE_DIRECTIVES, ROUTER_DIRECTIVES],
+  directives: const [CORE_DIRECTIVES, ROUTER_DIRECTIVES, BirdSearchComponent],
   providers: const [BirdService],
 )
 
