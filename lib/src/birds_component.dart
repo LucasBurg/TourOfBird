@@ -41,6 +41,12 @@ class BirdsComponent implements OnInit {
     birdSelected = null;
   }
 
+  Future<Null> delete(Bird bird) async {
+    await _birdService.delete(bird.id);
+    birds.remove(bird);
+    if (birdSelected == bird) birdSelected = null;
+  }
+
   void onSelect(Bird bird) => birdSelected = bird;
 
   void ngOnInit() => getBirds();

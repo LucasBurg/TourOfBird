@@ -15,6 +15,15 @@ class BirdService {
 
     BirdService(this._http);
 
+    Future<Null> delete(int id) async {
+        try {
+            final url = '$_birdUrl/$id';
+            await _http.delete(url, headers: _headers);
+        } catch (e) {
+            _handleError(e);
+        }
+    }
+
     Future<Bird> create(String name) async {
         try {
             final res = await _http.post(_birdUrl, headers: _headers, body: JSON.encode({'name': name}));
@@ -44,13 +53,6 @@ class BirdService {
         }
     }
 
-    dynamic _extractData(Response res) => JSON.decode(res.body)['data'];
-
-    Exception _handleError(dynamic e) {
-        print(e);
-        return new Exception('Server error; cause: $e');
-    }
-
     Future<Bird> getBird(int id) async {
         try {
             final res = await _http.get('$_birdUrl/$id');
@@ -58,5 +60,12 @@ class BirdService {
         } catch (e) {
             throw _handleError(e);
         }
+    }
+
+    dynamic _extractData(Response res) => JSON.decode(res.body)['data'];
+
+    Exception _handleError(dynamic e) {
+        print(e);
+        return new Exception('Server error; cause: $e');
     }
 }
