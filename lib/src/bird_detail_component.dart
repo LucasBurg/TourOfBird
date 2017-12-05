@@ -31,4 +31,9 @@ class BirdDetailComponent implements OnInit {
 
   void goBack() => _location.back();
 
+  Future<Null> save() async {
+    await _birdService.update(bird);
+    goBack();
+  }
+
 }

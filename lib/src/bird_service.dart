@@ -8,22 +8,37 @@ import 'bird.dart';
 
 @Injectable()
 class BirdService {
-
+    static final _headers = {'Content-Type': 'application/json'};
     static const _birdUrl = 'api/birds';
 
     final Client _http;
 
     BirdService(this._http);
 
+    Future<Bird> create(String name) async {
+        try {
+            final res = await _http.post(_birdUrl, headers: _headers, body: JSON.encode({'name': name}));
+            return new Bird.fromJson(_extractData(res));
+        } catch(e) {
+            throw _handleError(e);
+        }
+    }
+
+    Future<Bird> update(Bird bird) async {
+        try {
+            final url = '$_birdUrl/${bird.id}';
+            final res = await _http.put(url, headers: _headers, body: JSON.encode(bird));
+            return new Bird.fromJson(_extractData(res));
+        } catch(e) {
+            throw _handleError(e);
+        }
+    }
+
     Future<List<Bird>> getBirds() async {
         try {
-
             final res = await _http.get(_birdUrl);
-
             final birds = _extractData(res).map((val) => new Bird.fromJson(val)).toList();
-
             return birds;
-
         } catch (e) {
             throw _handleError(e);
         }

@@ -28,13 +28,22 @@ class BirdsComponent implements OnInit {
 
   BirdsComponent(this._birdService, this._router);
 
-  void getBirds() {
-    birds = _birdService.getBirds();
+  Future<Null> getBirds() async {
+    birds = await _birdService.getBirds();
   }
   
-  void ngOnInit() => getBirds();
+
+
+  Future<Null> gotoDetail() => _router.navigate(['BirdDetail', {'id': birdSelected.id.toString()}]);
+
+  Future<Null> add(String name) async {
+    name = name.trim();
+    if (name.isEmpty) return;
+    birds.add(await _birdService.create(name));
+    birdSelected = null;
+  }
 
   void onSelect(Bird bird) => birdSelected = bird;
 
-  Future<Null> gotoDetail() => _router.navigate(['BirdDetail', {'id': birdSelected.id.toString()}]);
+  void ngOnInit() => getBirds();
 }

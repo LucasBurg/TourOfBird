@@ -51,6 +51,7 @@ class InMemoryDataService extends MockClient {
     } else {
       throw 'Nenhum method http valido!';
     }
+    return new Response(JSON.encode({'data': data}), 200, headers: {'content-type': 'application/json'});
   }
 
   static resetDb() {
